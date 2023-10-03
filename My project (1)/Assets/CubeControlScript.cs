@@ -11,6 +11,7 @@ public class CubeControlScript : MonoBehaviour
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
+        myRB.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -20,9 +21,9 @@ public class CubeControlScript : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) { transform.position += Vector3.left * Time.deltaTime; }
         if (Input.GetKey(KeyCode.S)) { transform.position -= transform.forward * Time.deltaTime; }
         if (Input.GetKey(KeyCode.D)) { transform.position += Vector3.right * Time.deltaTime; }
-        if (Input.GetKey(KeyCode.Space)) { myRB.AddExplosionForce(0, transform.position + Vector3.down, 0); }
-        if (Input.GetKey(KeyCode.Q)) { transform.Rotate(Vector3.left, -90 * Time.deltaTime); }
-        if (Input.GetKey(KeyCode.E)) { transform.Rotate(Vector3.right,-90 * Time.deltaTime); }
+        if (Input.GetKey(KeyCode.Space)) { myRB.AddForce(transform.forward, ForceMode.Force); }
+        if (Input.GetKey(KeyCode.Q)) { transform.Rotate(Vector3.left, -120 * Time.deltaTime); }
+        if (Input.GetKey(KeyCode.E)) { transform.Rotate(Vector3.right,-120 * Time.deltaTime); }
 
 
     }
