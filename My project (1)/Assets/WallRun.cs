@@ -58,9 +58,10 @@ public class WallRun : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //First state
-        if((wallLeft || wallRight) && verticalInput > 0))
+        if((wallLeft || wallRight) && verticalInput > 0);
         {
             //Start Wallrun
+
         }
 
     }

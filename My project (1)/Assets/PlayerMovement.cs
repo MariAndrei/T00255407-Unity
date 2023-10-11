@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
 
+
+    
     public float groundDrag;
 
     public float jumpForce;
@@ -15,11 +17,13 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
+    public float walkSpeed;
+    public float sprintSpeed;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode shiftKey = KeyCode.LeftShift;
+    
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -39,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
+        moveSpeed = walkSpeed;
         readyToJump = true;
     }
 
@@ -83,14 +87,15 @@ public class PlayerMovement : MonoBehaviour
     {
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        // on ground
-        if (grounded)
+        if (Input.GetKey(KeyCode.LeftShift)) { moveSpeed = sprintSpeed; } else { moveSpeed = walkSpeed; }
+            // on ground
+            if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            
     }
 
     private void SpeedControl()
