@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode shiftKey = KeyCode.LeftShift;
+    public KeyCode throwKey = KeyCode.Mouse0;
     
 
     [Header("Ground Check")]
