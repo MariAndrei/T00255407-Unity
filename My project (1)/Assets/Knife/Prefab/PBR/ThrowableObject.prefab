@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4278420549398840}
   - component: {fileID: 65040660616546654}
   m_Layer: 0
-  m_Name: Knife_LODA
+  m_Name: ThrowableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
